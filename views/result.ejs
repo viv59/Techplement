@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <% if (quotes.length > 0) { %>
+    <h2 class="text-center text-body-primary mb-4">Quotes by <%= author %></h2>
+    <div class="jumbotron p-4 rounded"> 
+      <ul class="list-group">
+        <% quotes.forEach(quote => { %>
+          <li class="list-group-item bg-body-secondary my-2 p-3"><%= quote.quote %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } else if (author !== "") { %>
+    <div class="jumbotron p-4 rounded text-center">
+      <p class="text-body-primary">No quotes found for <%= author %>.</p>
+    </div>
+  <% } %>
+  <div class="text-center mt-4">
+    <a href="./search">
+      <button type="button" class="btn btn-dark btn-lg">Back to Search page</button>
+    </a>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
